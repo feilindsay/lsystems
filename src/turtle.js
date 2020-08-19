@@ -7,10 +7,11 @@ import {
 
 class LineTurtle {
     /**
-     * returns a Three.js Line representation of the LSystem
+     * adds a Three.js Line representation of lsystem to the scene
      * @param {LSystem} lsystem
+     * @param {THREE.Scene} scene
      */
-    static renderLines = (lsystem, scene, renderer, camera) => {
+    static renderLines = (lsystem, scene) => {
         var state = [{x: -.6, y: -.6, z: .2, angle: Math.PI/3}]
         var geometry = new Geometry();
         geometry.vertices.push(new Vector3(state[0].x, state[0].y, state[0].z))
@@ -43,13 +44,11 @@ class LineTurtle {
                     state.pop();
                     var cur = state[state.length - 1];
                     scene.add(line);
-                    renderer.render( scene, camera );
                     geometry = new Geometry();
                     geometry.vertices.push(new Vector3(cur.x, cur.y, cur.z))
                     break;
                 default:
                     break;
-
             }
         }
     }

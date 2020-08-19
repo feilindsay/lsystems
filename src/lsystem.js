@@ -7,16 +7,17 @@ class LSystem {
      * @param {set} variable_alphabet - replacable variables
      * @param {set} constant_alphabet - constant variables
      * @param {int} angle - angle of rotation when turning
+     * @param {float} length - length of each line segment
      * @param {int} iterations - number of iterations
      */
-    constructor(axiom, productions, variable_alphabet, constant_alphabet, angle, length, iterations=1,) {
+    constructor(axiom, productions, variable_alphabet, constant_alphabet, angle, length, iterations) {
         this.axiom = axiom || '';
         this.productions = productions || {};
         this.variable = variable_alphabet || new Set();
         this.constant = constant_alphabet || new Set();
         this.angle = angle || Math.PI/2;
-        this.length = length || 10
-        this.iterations = iterations;
+        this.length = length || .01;
+        this.iterations = iterations || 1;
         this.string = this.draw();
     }
 
@@ -38,8 +39,11 @@ class LSystem {
         return this.#draw_helper(acc, iteration + 1)
     }
 
+    /**
+     * create the LSystem string and store value in this.string
+     */
     draw = () => {
-        return this.#draw_helper(this.axiom, 0)
+        this.string = this.#draw_helper(this.axiom, 0)
     }
 }
 

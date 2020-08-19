@@ -8,8 +8,28 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container text-center">
+<div class="container-fluid text-center px-0">
     <h1 class="display-1 mb-5">L-System Trees</h1>
+    <div class="p-4">
+        <h1>Determinant L-Systems</h1>
+        <div id="determinant"></div>
+        <div class="input-group flex-wrap">
+            <div class="input-group-prepend">
+              <span class="input-group-text">ANGLE (radians)</span>
+            </div>
+            <input id="d_angle" type="number" class="form-control form-control-lg" value="0.4" step=".05">
+            <div class="input-group-prepend">
+              <span class="input-group-text">ITERATIONS</span>
+            </div>
+            <input id="d_iterations" type="number" class="form-control form-control-lg" value="5" max="10" min="0">
+            <div class="input-group-append">
+                <button id="d_1" type="button" class="btn btn-outline-secondary">L-System 1</button>
+                <button id="d_2" type="button" class="btn btn-outline-secondary">L-System 2</button>
+                <button id="d_3" type="button" class="btn btn-outline-secondary">L-System 3</button>
+            </div>
+        </div>
+    </div>
+    <div id="stochastic"></div>
 </div>
 
 <script src="js/jquery.js"></script>
