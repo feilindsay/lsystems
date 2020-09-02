@@ -15,4 +15,14 @@ var Determinant3 = new LSystem('X',
     new Set(['X', 'F']), 
     new Set(['+', '-', '[', ']']));
 
-export { Determinant1, Determinant2, Determinant3 }
+var Stochastic1 = new LSystem('F',
+    {'F': [{prob: .33, str: 'F[+F]F[-F]F'}, {prob: .33, str: 'F[+F]F'}, {prob: .34, str: 'F[−F]F'}]},
+    new Set(['F']),
+    new Set(['+', '-', '[', ']']));
+
+var Stochastic2 = new LSystem('F',
+    {'F': [{prob: .2, str: 'F[+F]F[-F]F'}, {prob: .2, str: 'FF-[-F+F+O]+[+F-F-F]'}, {prob: .4, str: 'FF+[+F-F-F]-[-F+F+O]'}]},
+    new Set(['F']),
+    new Set(['+', '-', '[', ']']));
+
+export { Determinant1, Determinant2, Determinant3, Stochastic1, Stochastic2 }

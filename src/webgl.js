@@ -45,11 +45,13 @@ class WebGL {
 	}
 }
 
-function determinantWebGL() {
+function initWebGL() {
 	var determinant = new WebGL("determinant");
 	document.getElementById('d_1').onclick = () => determinant.renderTree(Data.Determinant1);
 	document.getElementById('d_2').onclick = () => determinant.renderTree(Data.Determinant2);
 	document.getElementById('d_3').onclick = () => determinant.renderTree(Data.Determinant3);
+	document.getElementById('s_1').onclick = () => determinant.renderTree(Data.Stochastic1);
+	document.getElementById('s_2').onclick = () => determinant.renderTree(Data.Stochastic2);
 }
 
-determinantWebGL()
+initWebGL()
