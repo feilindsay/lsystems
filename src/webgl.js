@@ -28,8 +28,6 @@ class WebGL {
 
 	set angle(a) { this.lsystem.angle = a }
 
-	set iterations(i) { this.lsystem.iterations = i; this.lsystem.draw() }
-
 	/**
 	 * renders lsystem, using user input
 	 * @param {LSystem} lsystem 
@@ -37,7 +35,7 @@ class WebGL {
 	renderTree = (lsystem) => {
 		this.lsystem = lsystem;
 		this.angle = parseFloat(document.getElementById('d_angle').value);
-		this.iterations = parseFloat(document.getElementById('d_iterations').value);
+		this.lsystem.iterations = parseFloat(document.getElementById('d_iterations').value);
 		
 		this.scene.remove.apply(this.scene, this.scene.children);
 		LineTurtle.renderLines(this.lsystem, this.scene);

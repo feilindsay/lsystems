@@ -19,19 +19,23 @@ class LSystem {
         this.constant = constant_alphabet || new Set();
         this.angle = angle || Math.PI/2;
         this.length = length || .01;
-        this.iterations = iterations || 0;
-        this.string = this.draw();
+        this.iters = iterations || 0;
     }
 
+    set iterations(i) { this.iters = i; this.draw()}
+
     #draw_helper = (string, iteration) => {
-        if (iteration == this.iterations) {
+        if (iteration == this.iters) {
             return string;
         }
 
         var acc = '';
         for (let i = 0; i < string.length; i ++) {
             var c = string.charAt(i);
-            if (this.variable.has(c)) {
+            if (this.constant.has(c)) {
+                acc += c;
+            }
+            else if (this.variable.has(c)) {
                 var prod = this.productions[c]
                 if (typeof prod === 'string' || prod instanceof String) {
                     //determinant
@@ -49,9 +53,6 @@ class LSystem {
                         p_acc += stoch.prob;
                     }
                 }
-            }
-            else if (this.constant.has(c)) {
-                acc += c;
             }
         }
         return this.#draw_helper(acc, iteration + 1)
