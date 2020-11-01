@@ -36,7 +36,7 @@ class LSystem {
                 acc += c;
             }
             else if (this.variable.has(c)) {
-                var prod = this.productions[c]
+                var prod = this.productions[c];
                 if (typeof prod === 'string' || prod instanceof String) {
                     //determinant
                     acc += prod;
@@ -55,14 +55,14 @@ class LSystem {
                 }
             }
         }
-        return this.#draw_helper(acc, iteration + 1)
+        return this.#draw_helper(acc, iteration + 1);
     }
 
     /**
      * create the LSystem string and store value in this.string
      */
     draw = () => {
-        this.string = this.#draw_helper(this.axiom, 0)
+        this.string = this.#draw_helper(this.axiom, 0);
     }
 }
 
