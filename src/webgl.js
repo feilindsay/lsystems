@@ -45,12 +45,12 @@ class WebGL {
 }
 
 function initWebGL () {
-  const determinant = new WebGL('determinant')
-  document.getElementById('d_1').onclick = () => determinant.renderTree(Data.Determinant1)
-  document.getElementById('d_2').onclick = () => determinant.renderTree(Data.Determinant2)
-  document.getElementById('d_3').onclick = () => determinant.renderTree(Data.Determinant3)
-  document.getElementById('s_1').onclick = () => determinant.renderTree(Data.Stochastic1)
-  document.getElementById('s_2').onclick = () => determinant.renderTree(Data.Stochastic2)
+  const lsystemDiv = new WebGL('lsystem')
+  document.getElementById('d_1').onclick = () => lsystemDiv.renderTree(Data.Determinant1)
+  document.getElementById('d_2').onclick = () => lsystemDiv.renderTree(Data.Determinant2)
+  document.getElementById('d_3').onclick = () => lsystemDiv.renderTree(Data.Determinant3)
+  document.getElementById('s_1').onclick = () => lsystemDiv.renderTree(Data.Stochastic1)
+  document.getElementById('s_2').onclick = () => lsystemDiv.renderTree(Data.Stochastic2)
 }
 
 initWebGL()

@@ -1,4 +1,4 @@
-// TODO: stochastic & conditional productions
+// TODO: conditional productions
 class LSystem {
   /**
      *
