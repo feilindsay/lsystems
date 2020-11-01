@@ -12,7 +12,7 @@ class LineTurtle {
      * @param {THREE.Scene} scene
      */
   static renderLines (lsystem, scene) {
-    const state = [{ x: -0.6, y: -0.6, z: 0.2 }]
+    const state = [{ x: -0.6, y: -0.6, z: 0.2, angle: lsystem.angle }]
     let geometry = new Geometry()
     geometry.vertices.push(new Vector3(state[0].x, state[0].y, state[0].z))
 
